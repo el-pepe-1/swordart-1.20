@@ -2,5 +2,7 @@
   "item.swordart.fiery_revenge": "Fiery Revenge",
   "item.swordart.titan_slayer": "Titan Slayer",
 
-  "itemgroup.swordart_main": "Sword Art"
+  "itemgroup.swordart_main": "Sword Art",
+
+  "message.swordart.new_ss_level_reached": "§eYou have gained §g§l+%s§r§e sword skill lvl!"
 }

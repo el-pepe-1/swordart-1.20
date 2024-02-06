@@ -16,19 +16,12 @@ import java.util.List;
 public class ReachedNewLvlS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
         if(client.player != null) {
-            //int lvl = buf.readInt();
-            //int lvlDelta = buf.readInt();
-            //NbtCompound nbt = buf.readNbt();
-            //SwordSkillData swordSkillData = SwordSkillData.fromNbt(nbt, client.player);
+            int lvl = buf.readInt();
+            int lvlDelta = buf.readInt();
+            NbtCompound nbt = buf.readNbt();
+            SwordSkillData swordSkillData = SwordSkillData.fromNbt(nbt, client.player);
 
-            SwordArtClientData.hudAnimations.add(new HudAnimation(
-                    List.of(new HudAnimation.MoveKeyframe(new Vector2i(120, 120), 1)),
-                    List.of(new HudAnimation.DelayKeyframe(40)),
-                    new NewLevelReachedText(),
-                    new Vector2i(120, 0)
-            ));
-            //SwordArtClientData.hudAnimations.add(new HudAnimation(List.of(new HudAnimation.Keyframe(new Vector2i(0, 0), 1))));
+            SwordArtClientData.hudAnimations.add(NewLevelReachedText.getDefaultTextAnimation(lvlDelta));
         }
     }
-
 }

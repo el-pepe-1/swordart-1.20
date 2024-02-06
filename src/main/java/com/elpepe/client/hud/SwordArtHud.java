@@ -29,16 +29,13 @@ public class SwordArtHud implements HudRenderCallback {
 
                     if(holder.isCurrentFrameReached()) {
                         holder.keyframeReached();
-                        Swordart.LOGGER.info("Keyframe reached!");
                         if(skippedHolders >= hudAnimation.getHolders().length) {
-                            Swordart.LOGGER.info("Animation ended!");
                             endedAnimations.add(i);
                         }
                         hudAnimation.animatedObject.render(drawContext, tickDelta, hudAnimation.moveKeyframesHolder.currentValue.x, hudAnimation.moveKeyframesHolder.currentValue.y);
                     }
                     else {
                         holder.moveCurrentFrame();
-                        Swordart.LOGGER.info("New pos is: " + holder.currentValue);
 
                         hudAnimation.animatedObject.render(drawContext, tickDelta, hudAnimation.moveKeyframesHolder.currentValue.x, hudAnimation.moveKeyframesHolder.currentValue.y);
                         if(holder.keyframes.get(holder.getCurrentKeyframe()).shouldStopNextKeyframes()) {
